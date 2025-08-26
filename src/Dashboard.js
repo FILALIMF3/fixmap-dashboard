@@ -148,7 +148,7 @@ function Dashboard() {
               <p><strong>Submitted by:</strong> {selectedReport.citizen_name}</p>
               <p><strong>Date:</strong> {formatDate(selectedReport.created_at)}</p>
               <p><strong>Image:</strong></p>
-              <img src="https://via.placeholder.com/300x200.png?text=Image+Not+Found" alt="Report" style={{ width: '100%', borderRadius: '8px' }} />
+              <img src={selectedReport.image_url} alt="Report" style={{ width: '100%', borderRadius: '8px' }} />
               
               <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-between' }}>
                   <button 
