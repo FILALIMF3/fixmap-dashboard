@@ -1,9 +1,8 @@
 // src/Dashboard.js
-import MiniMap from './MiniMap';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import PhotoMarker from './PhotoMarker';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import MiniMap from './MiniMap'; // Assuming MiniMap.js is in the same src folder
 
 const containerStyle = {
   width: '100vw',
@@ -93,13 +92,14 @@ function Dashboard() {
           onClick={() => setIsSidebarOpen(false)}
         >
           {reports.map((report) => (
-            <PhotoMarker
-  key={report.id}
-  lat={parseFloat(report.latitude)}
-  lng={parseFloat(report.longitude)}
-  imageUrl={report.image_url}
-  onClick={() => handleMarkerClick(report)}
-/>
+            <Marker
+              key={report.id}
+              position={{
+                lat: parseFloat(report.latitude),
+                lng: parseFloat(report.longitude)
+              }}
+              onClick={() => handleMarkerClick(report)}
+            />
           ))}
         </GoogleMap>
 
@@ -148,11 +148,12 @@ function Dashboard() {
               <p><strong>Status:</strong> {selectedReport.status}</p>
               <p><strong>Submitted by:</strong> {selectedReport.citizen_name}</p>
               <p><strong>Date:</strong> {formatDate(selectedReport.created_at)}</p>
+              
               <p><strong>Location Preview:</strong></p>
-<MiniMap 
-  lat={parseFloat(selectedReport.latitude)} 
-  lng={parseFloat(selectedReport.longitude)} 
-/>
+              <MiniMap 
+                lat={parseFloat(selectedReport.latitude)} 
+                lng={parseFloat(selectedReport.longitude)} 
+              />
               
               <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-between' }}>
                   <button 
