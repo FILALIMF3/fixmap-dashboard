@@ -80,7 +80,7 @@ function Dashboard() {
 
   return (
     <LoadScript
-      googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY" // <-- PASTE YOUR API KEY HERE
+      googleMapsApiKey="AIzaSyD97SAhf9HZGF5kX2mOgx7fnao9mGMB53Y" // <-- PASTE YOUR API KEY HERE
     >
       <div>
         <GoogleMap
