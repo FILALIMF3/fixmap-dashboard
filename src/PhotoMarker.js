@@ -11,7 +11,7 @@ const styles = {
     boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
     overflow: 'hidden',
     cursor: 'pointer',
-    transform: 'translate(-50%, -50%)' // Center the marker on the coordinate
+    transform: 'translate(-50%, -50%)'
   },
   image: {
     width: '100%',
@@ -20,7 +20,6 @@ const styles = {
   }
 };
 
-// This is a custom getPixelPositionOffset function to correctly position the marker
 const getPixelPositionOffset = (width, height) => ({
   x: -(width / 2),
   y: -(height / 2),
